@@ -248,34 +248,21 @@
     </div>
   </section>
 
-  <!-- 7. RSVP -->
+  <!-- 7. THE END -->
   <section class="screen rsvp" id="rsvp">
     <svg class="float f1" style="color:#ffe7a8"><use href="#d-star"/></svg>
     <svg class="float f4" style="color:#ffcad4"><use href="#d-heart"/></svg>
+    <svg class="float f6" style="color:#c9b6f2"><use href="#d-sparkle"/></svg>
     <p class="step reveal">last stop!</p>
+    <svg class="end-sun reveal" style="--d:.05s;color:#ffe7a8" aria-hidden="true"><use href="#d-sun"/></svg>
     <h2 class="huge reveal" style="--d:.1s">Are you in? 🥺</h2>
-    <p class="note reveal" style="--d:.2s">say yes, say yes, say yes</p>
-
-    <div id="rsvpIdle" class="reveal" style="--d:.3s">
-      <button class="btn btn-huge" id="imIn" type="button">I'm in! 🙋</button>
+    <p class="end-lead reveal" style="--d:.2s">Just let Chanel know! 💌</p>
+    <p class="note reveal" style="--d:.3s">no forms, no fuss.<br>one tiny text = one happy camper&nbsp;✨</p>
+    <div class="reveal" style="--d:.4s">
+      <a class="btn btn-huge" id="textMe" href="sms:?&amp;body=I%27m%20in%20for%20Lyons%20camping%20Sept%2010%E2%80%9312!%20%E2%9B%BA">Text Chanel I'm in 💌</a>
     </div>
-
-    <form id="rsvpForm" class="rsvp-form" hidden novalidate>
-      <label><span>Your name(s) <span class="req">*</span></span>
-        <input name="name" id="fName" required autocomplete="name" placeholder="e.g. Mai &amp; Tom" maxlength="80">
-      </label>
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="err" id="formErr" role="alert" hidden></p>
-      <button class="btn btn-big" type="submit" id="sendBtn">Send my yes 💌</button>
-      <button class="link-btn" type="button" id="cancelForm">never mind</button>
-    </form>
-
-    <div id="rsvpDone" class="done" hidden>
-      <svg class="done-sun" style="color:#ffe7a8"><use href="#d-sun"/></svg>
-      <h3>Yay! See you by the creek ⛺</h3>
-      <p id="doneMsg">You're on the list!</p>
-      <button class="link-btn" type="button" id="editRsvp">change my answer</button>
-    </div>
+    <p class="desk-only reveal" style="--d:.5s">or just tell her in person ♡</p>
+    <p class="yay" id="yay" aria-live="polite" hidden>yay! see you by the creek ⛺</p>
     <p class="foot">made with 💕 by Chanel</p>
   </section>
   </div>

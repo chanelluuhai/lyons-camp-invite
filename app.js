@@ -1,7 +1,5 @@
 (function () {
   'use strict';
-  var ENDPOINT = 'https://formsubmit.co/ajax/thepinnaluus@gmail.com';
-  var KEY = 'lyonsCampRsvp2027';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (id) { return document.getElementById(id); };
 
@@ -44,86 +42,10 @@
     try { sessionStorage.setItem('tipClosed', '1'); } catch (e) {}
   });
 
-  /* ---------- RSVP ---------- */
-  var form = $('rsvpForm'), idle = $('rsvpIdle'), done = $('rsvpDone'), err = $('formErr'), sendBtn = $('sendBtn');
-
-  function load() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
-  function save(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
-
-  function show(which) {
-    idle.hidden = which !== 'idle';
-    form.hidden = which !== 'form';
-    done.hidden = which !== 'done';
-    if (which === 'idle') idle.classList.add('in');
-  }
-  function showDone(d, fresh) {
-    $('doneMsg').textContent = (fresh ? 'Got it, ' : 'You already said yes, ') + d.name + '! ♡';
-    show('done');
-  }
-
-  var saved = load();
-  if (saved && saved.name) showDone(saved, false);
-
-  $('imIn').addEventListener('click', function () {
-    show('form');
-    setTimeout(function () { $('fName').focus({ preventScroll: true }); form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); }, 60);
-    confetti(14);
-  });
-  $('cancelForm').addEventListener('click', function () { show('idle'); });
-  $('editRsvp').addEventListener('click', function () {
-    var d = load() || {};
-    form.elements.name.value = d.name || '';
-    err.hidden = true;
-    show('form');
-  });
-
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    err.hidden = true;
-    var nameEl = form.elements.name;
-    var name = nameEl.value.trim();
-    if (!name) {
-      nameEl.classList.remove('bad'); void nameEl.offsetWidth; nameEl.classList.add('bad');
-      err.textContent = 'oops! we need your name so we know who\'s coming 🙈';
-      err.hidden = false; nameEl.focus(); return;
-    }
-    nameEl.classList.remove('bad');
-    if (form.elements._honey.value) { return; }
-
-    var d = { name: name };
-    var payload = {
-      _subject: 'Lyons camping RSVP: ' + name,
-      _template: 'table',
-      _captcha: 'false',
-      Name: d.name,
-      Trip: 'LaVern M. Johnson Park, Lyons · Fri Sept 10 – Sun Sept 12, 2027 · sites 14-18 & 20'
-    };
-
-    sendBtn.disabled = true;
-    var label = sendBtn.textContent;
-    sendBtn.textContent = 'sending… 🐌';
-
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function (r) {
-      return r.json().catch(function () { return {}; }).then(function (j) {
-        if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || ('HTTP ' + r.status));
-      });
-    }).then(function () {
-      d.at = new Date().toISOString();
-      save(d);
-      showDone(d, true);
-      confetti(80);
-    }).catch(function (e) {
-      if (window.console) console.warn('RSVP failed:', e);
-      err.textContent = 'eep, the carrier pigeon got lost 🕊️ check your connection and tap send again? (or just text Chanel!)';
-      err.hidden = false;
-    }).then(function () {
-      sendBtn.disabled = false;
-      sendBtn.textContent = label;
-    });
+  /* ---------- text Chanel ---------- */
+  $('textMe').addEventListener('click', function () {
+    confetti(70);
+    $('yay').hidden = false;
   });
 
   /* ---------- confetti ---------- */
