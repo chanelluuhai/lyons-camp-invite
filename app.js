@@ -44,8 +44,7 @@
 
   /* ---------- text Chanel ---------- */
   $('textMe').addEventListener('click', function () {
-    confetti(70);
-    $('yay').hidden = false;
+    confetti(50);
   });
 
   /* ---------- confetti ---------- */
