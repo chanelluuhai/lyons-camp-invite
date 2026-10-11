@@ -168,18 +168,13 @@ figcaption{font-size:17px;margin-top:12px;opacity:.75;transform:rotate(-1deg)}
 .rsvp .f1{width:36px;height:36px;top:12%;left:10%;animation:twinkle 2.2s infinite}
 .rsvp .f4{width:40px;height:36px;top:7%;right:10%;animation:beat 1.4s infinite}
 #rsvpIdle{margin-top:22px}
-.rsvp-form{width:min(360px,100%);background:#fff;border:3px solid var(--ink);border-radius:var(--wob2);box-shadow:5px 6px 0 var(--ink);
+.rsvp-form{width:min(340px,100%);background:#fff;border:3px solid var(--ink);border-radius:var(--wob2);box-shadow:5px 6px 0 var(--ink);
   padding:18px 18px 12px;text-align:left;display:flex;flex-direction:column;gap:10px;margin-top:14px;animation:popIn .5s cubic-bezier(.3,1.5,.5,1)}
 .rsvp-form label{display:flex;flex-direction:column;gap:3px;font-weight:700;font-size:20px}
 .req{color:var(--pink2)}.opt{font-weight:400;font-size:16px;opacity:.7}
 .rsvp-form input,.rsvp-form textarea{font:inherit;font-size:20px;color:var(--ink);background:var(--paper);border:2.5px solid var(--ink);border-radius:12px 18px 10px 16px;padding:7px 10px;width:100%}
 .rsvp-form textarea{resize:vertical}
 .rsvp-form input.bad{border-color:#e05a7a;background:#fff0f3;animation:shake .35s}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stepper{display:flex;align-items:center;gap:4px}
-.stepper input{text-align:center;padding:6px 2px;-moz-appearance:textfield;font-family:var(--bubble);font-size:22px}
-.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.stepper button{flex:0 0 36px;height:36px;border:2.5px solid var(--ink);border-radius:50%;background:var(--butter2);font-family:var(--bubble);font-size:22px;line-height:1;padding:0}
 .rsvp-form .btn{align-self:center;margin-top:6px}
 .rsvp-form .link-btn{align-self:center;font-size:17px;margin-top:2px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
@@ -214,6 +209,7 @@ figcaption{font-size:17px;margin-top:12px;opacity:.75;transform:rotate(-1deg)}
   .bgd:nth-child(even){animation-duration:6.5s;animation-delay:.8s}
   .phone{max-width:420px;margin:0 auto;border-left:3px solid var(--ink);border-right:3px solid var(--ink);box-shadow:12px 0 0 rgba(91,74,107,.15)}
   .screen{min-height:100vh}
+  .huge{font-size:50px}
 }
 @media (max-height:700px){
   .screen{padding-top:56px;padding-bottom:44px}

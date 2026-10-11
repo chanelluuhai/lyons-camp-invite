@@ -264,20 +264,6 @@
       <label><span>Your name <span class="req">*</span></span>
         <input name="name" id="fName" required autocomplete="name" placeholder="e.g. Auntie Mai" maxlength="80">
       </label>
-      <label><span>Family name / crew <span class="opt">(optional)</span></span>
-        <input name="family" placeholder="e.g. the Nguyens" maxlength="80">
-      </label>
-      <div class="row">
-        <label>Grown-ups
-          <span class="stepper"><button type="button" data-step="-1" aria-label="fewer grown-ups">–</button><input name="adults" type="number" inputmode="numeric" min="0" max="20" value="2"><button type="button" data-step="1" aria-label="more grown-ups">+</button></span>
-        </label>
-        <label>Kiddos
-          <span class="stepper"><button type="button" data-step="-1" aria-label="fewer kiddos">–</button><input name="kids" type="number" inputmode="numeric" min="0" max="20" value="1"><button type="button" data-step="1" aria-label="more kiddos">+</button></span>
-        </label>
-      </div>
-      <label><span>A little note <span class="opt">(optional)</span></span>
-        <textarea name="note" rows="2" placeholder="bringing my famous s'mores dip!" maxlength="500"></textarea>
-      </label>
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <p class="err" id="formErr" role="alert" hidden></p>
       <button class="btn btn-big" type="submit" id="sendBtn">Send my yes 💌</button>

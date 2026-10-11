@@ -56,15 +56,8 @@
     done.hidden = which !== 'done';
     if (which === 'idle') idle.classList.add('in');
   }
-  function crewLine(d) {
-    var a = +d.adults || 0, k = +d.kids || 0;
-    var parts = [];
-    if (a) parts.push(a + (a === 1 ? ' grown-up' : ' grown-ups'));
-    if (k) parts.push(k + (k === 1 ? ' kiddo' : ' kiddos'));
-    return parts.length ? ' (' + parts.join(' + ') + ')' : '';
-  }
   function showDone(d, fresh) {
-    $('doneMsg').textContent = (fresh ? 'Got it, ' : 'You already said yes, ') + d.name + '!' + crewLine(d) + ' ♡';
+    $('doneMsg').textContent = (fresh ? 'Got it, ' : 'You already said yes, ') + d.name + '! ♡';
     show('done');
   }
 
@@ -79,17 +72,9 @@
   $('cancelForm').addEventListener('click', function () { show('idle'); });
   $('editRsvp').addEventListener('click', function () {
     var d = load() || {};
-    ['name', 'family', 'adults', 'kids', 'note'].forEach(function (k) { if (d[k] != null && form.elements[k]) form.elements[k].value = d[k]; });
+    form.elements.name.value = d.name || '';
     err.hidden = true;
     show('form');
-  });
-
-  form.querySelectorAll('.stepper button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var input = b.parentNode.querySelector('input');
-      var v = Math.max(0, Math.min(20, (parseInt(input.value, 10) || 0) + (+b.dataset.step)));
-      input.value = v;
-    });
   });
 
   form.addEventListener('submit', function (ev) {
@@ -105,22 +90,12 @@
     nameEl.classList.remove('bad');
     if (form.elements._honey.value) { return; }
 
-    var d = {
-      name: name,
-      family: form.elements.family.value.trim(),
-      adults: String(parseInt(form.elements.adults.value, 10) || 0),
-      kids: String(parseInt(form.elements.kids.value, 10) || 0),
-      note: form.elements.note.value.trim()
-    };
+    var d = { name: name };
     var payload = {
       _subject: 'Lyons camping RSVP: ' + name,
       _template: 'table',
       _captcha: 'false',
       Name: d.name,
-      'Family / crew': d.family || '-',
-      'Grown-ups': d.adults,
-      Kiddos: d.kids,
-      Note: d.note || '-',
       Trip: 'LaVern M. Johnson Park, Lyons · Fri Sept 10 – Sun Sept 12, 2027 · sites 14-18 & 20'
     };
 
