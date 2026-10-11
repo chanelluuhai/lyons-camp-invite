@@ -11,7 +11,7 @@
     env.classList.add('open');
     setTimeout(function () {
       $('when').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-    }, reduce ? 0 : 750);
+    }, reduce ? 0 : 1150);
   }
   $('openInvite').addEventListener('click', openInvite);
   env.addEventListener('click', openInvite);
